@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .gallery-container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 1300px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      width: 100%;
+      margin-bottom: 25px;
+      user-select: none;
+    }
+
+    nav a {
+      color: #90caf9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #4fc3f7;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #fff;
+      outline: none;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      margin: 0 0 10px 0;
+      color: #fff;
+      border-bottom: 2px solid #4fc3f7;
+      padding-bottom: 8px;
+      align-self: flex-start;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 0 30px 0;
+      align-self: flex-start;
+    }
+
+    #playBtn {
+      background-color: #4fc3f7;
+      border: none;
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(79, 195, 247, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      align-self: flex-start;
+      margin-bottom: 30px;
+      user-select: none;
+    }
+
+    #playBtn:hover,
+    #playBtn:focus {
+      background-color: #3aa3e0;
+      box-shadow: 0 6px 20px rgba(58, 163, 224, 0.8);
+      outline: none;
+    }
+
+    #playBtn:active {
+      background-color: #3288c5;
+      box-shadow: 0 2px 10px rgba(50, 136, 197, 0.9);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      width: 100%;
+    }
+
+    .gallery-grid img,
+    .gallery-grid video {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background-color: #8c8a8a;
+    }
+
+    .gallery-grid img:hover,
+    .gallery-grid video:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="About Me.html">About</a>
+      <a href="Gallery.html" id="gallery-link">Gallery</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Dash.html">Dashboard</a>
+      <a href="Menu.html">Menu</a>
+    </nav>
+
+    <h2>The Gallery</h2>
+    <p>My Interest, Hobbies, and Favorites</p>
+
+    <button id="playBtn" aria-label="Play all videos">Play All Videos</button>
+
+    <div class="gallery-grid">
+      <img src="image2.jpg" alt="Photo 1" />
+      <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_1212,c_limit/ced78e9d-04b6-4954-8445-94f57c329cb2/air-jordan-1-2022-lost-and-found-chicago-the-inspiration-behind-the-design.jpg" alt="Photo 2" />
+      <img src="https://i.redd.it/hzck30amrd061.jpg" alt="Photo 3" />
+      <img src="https://media.gettyimages.com/id/1716737/photo/oakland-vince-carter-of-the-toronto-raptors-goes-for-a-dunk-during-the-2000-nba-all-star-slam.jpg?s=612x612&w=0&k=20&c=x4HiiVafBBVSdXpdlYZh8CWruIhXDq3mev1VKRKs2Kg=" alt="Photo 4" />
+
+      <video src="Vid1.mp4" class="vid" controls></video>
+      <video src="Vid2.mp4" class="vid" controls></video>
+      <video src="Vid3.mp4" class="vid" controls></video>
+      <video src="Vid4.mp4" class="vid" controls></video>
+    </div>
+  </div>
+
+  <script>
+    const playBtn = document.getElementById("playBtn");
+    const videos = document.querySelectorAll(".vid");
+
+    playBtn.addEventListener("click", () => {
+     
+      const anyPlaying = Array.from(videos).some(video => !video.paused && !video.ended);
+
+      if (anyPlaying) {
+      
+        videos.forEach(video => video.pause());
+        playBtn.textContent = "Play All Videos";
+      } else {
+    
+        videos.forEach(video => {
+          video.play().catch(() => {
+
+          });
+        });
+        playBtn.textContent = "Pause All Videos";
+      }
+    });
+  </script>
+</body>
+</html>
